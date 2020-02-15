@@ -32,9 +32,11 @@ def sumAndPrime():
     result["sum"] = total
     return jsonify(result)
 
-@app.route('/api/isprime')
+@app.route('/api/isprime', methods=['POST'])
 def isPrime():
-    return 'Just priming things up'
+    number = int(request.get_json()["primeCandidate"])
+    result = checkPrime(number)
+    return jsonify(result)
 
 PORT=3003
 
