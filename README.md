@@ -10,7 +10,7 @@ Multiple backend implementations of prime number calculations
 ## Install
 
 ### backend_nodejs 
-/path/to/primes/backend_nodejs$ npm install && npm run (node version 12.x)
+/path/to/primes/backend_nodejs$ npm install && npm run 
 
 ### backend_go 
 /path/to/primes/backend_go$ grep github main.go| xargs go get -u && go run main.go
