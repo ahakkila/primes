@@ -103,15 +103,16 @@ func main() {
 		if err := c.ShouldBindJSON(&request); err != nil {
 			log.Printf("%s Error: %s", c.Request.RequestURI, err.Error())
 			resp := Response{Success: false, IsPrime: false, ErrorText: err.Error()}
-			c.JSON(http.StatusBadRequest, resp)
+			c.JSON(200, resp)
 			return
 		}
 
 		candidate, err := strconv.ParseInt(request.Candidate, 10, 64)
 		if err != nil {
-			errtext := fmt.Sprintf("Conversion of %v to a number faile, err=%s", request.Candidate, err)
+			errtext := fmt.Sprintf("Conversion of %v to a number failed, err=%s", request.Candidate, err)
+			log.Printf("%s Error: %s", c.Request.RequestURI, err.Error())
 			resp := Response{Success: false, IsPrime: false, ErrorText: errtext}
-			c.JSON(http.StatusBadRequest, resp)
+			c.JSON(200, resp)
 			return
 		}
 

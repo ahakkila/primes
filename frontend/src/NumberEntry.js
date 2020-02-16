@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import axios from 'axios'
 
-const NumberEntry = ({ alertUser, portNumber }) => {
+const NumberEntry = ({ alertUser, portNumber, closeAlert }) => {
 
   const [data, setData] = useState("")
 
@@ -36,6 +36,7 @@ const NumberEntry = ({ alertUser, portNumber }) => {
 
   const handleSum = () => {
     const url = `http://localhost:${portNumber}/api/sum`
+    closeAlert()
     const request = axios.post(url, { numberList: data })
     request
       .then( (response) => {
@@ -57,7 +58,7 @@ const NumberEntry = ({ alertUser, portNumber }) => {
 
   const handlePrime = () => {
     const url = `http://localhost:${portNumber}/api/isprime`
-    console.log('check prime url', url)
+    closeAlert()
     const request = axios.post(url, { primeCandidate: data })
     request
       .then( (response) => {

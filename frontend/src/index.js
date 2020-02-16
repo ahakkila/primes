@@ -89,7 +89,8 @@ const App = () => {
     <>
       <h2>Enter comma separated number(s)</h2>
       <ServiceSelector updatePortNumber={updatePortNumber} portNumber={portNumber} />
-      <NumberEntry alertUser={alertUser} portNumber={portNumber} />
+      <NumberEntry alertUser={alertUser} portNumber={portNumber} 
+        closeAlert={closeAlert} />
       <AlertBox alert={alert} closeAlert={closeAlert} />
     </>
   )
